@@ -1,0 +1,11 @@
+{
+  "name": "CivicFix",
+  "description": "Intelligent Civic Issue Reporting and Routing Platform – See it. Report it. Fix it.",
+  "requestFramePermissions": [
+    "camera",
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

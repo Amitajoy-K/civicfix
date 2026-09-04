@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  # MySQL Database Service
+  civicfix-mysql:
+    image: mysql:8.0
+    container_name: civicfix-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-civicfix_root_pass}
+      MYSQL_DATABASE: civicfix_db
+      MYSQL_USER: civicfix_user
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-civicfix_secret_pass}
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD:-civicfix_root_pass}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - civicfix-net
+
+  # CivicFix Application Service (Web + API)
+  civicfix-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: civicfix-app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - DB_HOST=civicfix-mysql
+      - DB_PORT=3306
+      - DB_NAME=civicfix_db
+      - DB_USER=civicfix_user
+      - DB_PASSWORD=${MYSQL_PASSWORD:-civicfix_secret_pass}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+    depends_on:
+      civicfix-mysql:
+        condition: service_healthy
+    networks:
+      - civicfix-net
+
+volumes:
+  mysql_data:
+    driver: local
+
+networks:
+  civicfix-net:
+    driver: bridge
