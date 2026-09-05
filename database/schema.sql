@@ -119,7 +119,7 @@ INSERT INTO departments (id, name, description, head_name, contact_email) VALUES
 ('dept-traffic', 'Traffic/Road Department', 'Traffic signage, zebra crossings, signal boards, speed bumps, and road median safety.', 'Insp. M. Rajendran', 'traffic.roads@civicfix.gov.in');
 
 INSERT INTO users (id, name, email, password, role, department_id) VALUES
-('usr-citizen-1', 'Karthik Subramanian', 'karthik.citizen@gmail.com', '$2a$12$e8M0N.z9K9K3H7L6F5G4...', 'CITIZEN', NULL),
+('usr-citizen-1', 'Amita', 'karthik.citizen@gmail.com', '$2a$12$e8M0N.z9K9K3H7L6F5G4...', 'CITIZEN', NULL),
 ('usr-citizen-2', 'Ananya Ramesh', 'ananya.r@gmail.com', '$2a$12$e8M0N.z9K9K3H7L6F5G4...', 'CITIZEN', NULL),
 ('usr-staff-road', 'Rajesh Kumar (Road Division)', 'rajesh.staff@civicfix.gov.in', '$2a$12$e8M0N.z9K9K3H7L6F5G4...', 'STAFF', 'dept-road'),
 ('usr-staff-sanitation', 'Saravanan M. (Sanitation Staff)', 'saravanan.staff@civicfix.gov.in', '$2a$12$e8M0N.z9K9K3H7L6F5G4...', 'STAFF', 'dept-sanitation'),

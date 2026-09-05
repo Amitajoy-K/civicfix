@@ -60,7 +60,7 @@ export const INITIAL_DEPARTMENTS: Department[] = [
 export const INITIAL_USERS: User[] = [
   {
     id: 'usr-citizen-1',
-    name: 'Karthik Subramanian',
+    name: 'Amita',
     email: 'karthik.citizen@gmail.com',
     role: 'CITIZEN',
     createdAt: '2026-07-15T08:30:00Z'
@@ -105,7 +105,7 @@ export const INITIAL_ISSUES: CivicIssue[] = [
   {
     id: 'CF10024',
     userId: 'usr-citizen-1',
-    userName: 'Karthik Subramanian',
+    userName: 'Amita',
     userEmail: 'karthik.citizen@gmail.com',
     category: 'Road Damage',
     title: 'Severe Pothole on 5th Avenue Junction',
@@ -131,7 +131,7 @@ export const INITIAL_ISSUES: CivicIssue[] = [
         status: 'Reported',
         timestamp: '2026-08-28T09:30:00Z',
         note: 'Citizen filed initial report with geo-tagged photographic evidence.',
-        actor: 'Karthik Subramanian',
+        actor: 'Amita',
         actorRole: 'CITIZEN'
       },
       {
@@ -188,7 +188,7 @@ export const INITIAL_ISSUES: CivicIssue[] = [
   {
     id: 'CF10026',
     userId: 'usr-citizen-1',
-    userName: 'Karthik Subramanian',
+    userName: 'Amita',
     userEmail: 'karthik.citizen@gmail.com',
     category: 'Street Lighting',
     title: 'Non-functioning Streetlight Pole #B14',
@@ -209,7 +209,7 @@ export const INITIAL_ISSUES: CivicIssue[] = [
         status: 'Reported',
         timestamp: '2026-08-31T20:10:00Z',
         note: 'Citizen reported night-time visibility hazard.',
-        actor: 'Karthik Subramanian',
+        actor: 'Amita',
         actorRole: 'CITIZEN'
       },
       {
@@ -274,7 +274,7 @@ export const INITIAL_ISSUES: CivicIssue[] = [
   {
     id: 'CF10028',
     userId: 'usr-citizen-1',
-    userName: 'Karthik Subramanian',
+    userName: 'Amita',
     userEmail: 'karthik.citizen@gmail.com',
     category: 'Tree Hazard',
     title: 'Heavy Banyan Tree Limb Fallen Across Road',
@@ -298,7 +298,7 @@ export const INITIAL_ISSUES: CivicIssue[] = [
         status: 'Reported',
         timestamp: '2026-09-02T07:40:00Z',
         note: 'Branch reported after overnight thunderstorm.',
-        actor: 'Karthik Subramanian',
+        actor: 'Amita',
         actorRole: 'CITIZEN'
       },
       {

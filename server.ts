@@ -461,7 +461,7 @@ Provide your output ONLY in valid JSON with these exact keys:
       const newIssue: CivicIssue = {
         id,
         userId: userId || 'usr-citizen-1',
-        userName: userName || 'Karthik Subramanian',
+        userName: userName || 'Amita',
         userEmail: userEmail || 'citizen@civicfix.gov.in',
         category: issueCategory,
         title: title || `${issueCategory} reported at ${address.split(',')[0]}`,
