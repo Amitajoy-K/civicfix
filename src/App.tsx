@@ -37,7 +37,7 @@ export function App() {
   // Modals
   const [selectedIssue, setSelectedIssue] = useState<CivicIssue | null>(null);
   const [isReportWizardOpen, setIsReportWizardOpen] = useState<boolean>(false);
-  const [isAuthModalOpen, setIsAuthModalOpen] = useState<boolean>(false);
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState<boolean>(true);
   const [isNotificationsModalOpen, setIsNotificationsModalOpen] = useState<boolean>(false);
 
   // Success Toast Banner
