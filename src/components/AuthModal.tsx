@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Building2, X, Lock, Mail, User as UserIcon, ArrowRight, ShieldCheck, Wrench, CheckCircle2 } from 'lucide-react';
 import { User, Department } from '../types';
+import { loginApi, registerApi } from '../services/api';
 
 interface AuthModalProps {
   isOpen: boolean;
@@ -34,25 +35,21 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
     try {
       if (isRegister) {
-        const res = await fetch('/api/auth/register', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email, password, role, departmentId })
-        });
-        const data = await res.json();
-        if (!res.ok) throw new Error(data.error || 'Registration failed');
-        onLoginSuccess(data.user);
-        onClose();
+       const data = await registerApi({
+  name,
+  email,
+  password,
+  role,
+  departmentId
+});
+
+onLoginSuccess(data.user);
+onClose();
       } else {
-        const res = await fetch('/api/auth/login', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email, password })
-        });
-        const data = await res.json();
-        if (!res.ok) throw new Error(data.error || 'Login failed');
-        onLoginSuccess(data.user);
-        onClose();
+        const data = await loginApi(email, password);
+
+onLoginSuccess(data.user);
+onClose();
       }
     } catch (err: any) {
       setError(err.message || 'Authentication error');
@@ -65,15 +62,10 @@ export const AuthModal: React.FC<AuthModalProps> = ({
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch('/api/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: demoEmail, password: 'password123' })
-      });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Demo login failed');
-      onLoginSuccess(data.user);
-      onClose();
+      const data = await loginApi(demoEmail, 'password123');
+
+onLoginSuccess(data.user);
+onClose();
     } catch (err: any) {
       setError(err.message || 'Login failed');
     } finally {

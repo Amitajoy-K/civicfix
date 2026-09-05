@@ -1,3 +1,4 @@
+/// <reference types="vite/client" />
 import { 
   CivicIssue, 
   Department, 
@@ -7,7 +8,8 @@ import {
   AnalysisResult 
 } from '../types';
 
-const API_BASE = '';
+const API_BASE =
+import.meta.env.VITE_API_BASE_URL || '';
 
 export async function loginApi(email: string, password?: string): Promise<{ user: User; token: string }> {
   const res = await fetch(`${API_BASE}/api/auth/login`, {
